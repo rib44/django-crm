@@ -15,9 +15,24 @@
 
     </head>
     <body>
+        <!-- Navbar -->
         {% include 'navbar.html' %}
 
-        {% block body %} {% endblock %}
+        <!-- Display of alert messages -->
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show"
+            role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"
+                aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <!-- Main Body content -->
+        {% block body %}
+        {% endblock %}
 
         <!-- JS -->
         <script

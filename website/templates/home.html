@@ -2,11 +2,15 @@
 
 {% block body %}
 
-<div class="col-md-6 offset-md-3">
-    <h1>Login</h1>
 
+    {% if user.is_authenticated %}
 
-</div>
+    <h1>Hello World</h1>
 
+    {% else %}
+    <br>
+        <button onclick="location.href='{% url 'login' %}'" class="btn btn-primary">Login</button>
+        
+    {% endif %}
 
-{% endblock%}
+{% endblock %}
